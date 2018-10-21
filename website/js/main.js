@@ -4,3 +4,4 @@ require('./map-data.js');
 // require('./geocoding.js');
 require('./histogram/histogram.js');
 require('./donut/donut.js');
+require('./histogram/histogram2.js');

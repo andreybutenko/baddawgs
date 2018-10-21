@@ -64,6 +64,7 @@ dataCore.onDataLoaded(function(data) {
 
 });
 
+
 Highcharts.theme = {
     colors: ['#C0392B', '#2880B9', '#27AE60', '#D35401', '#999999'],
     // chart: {
