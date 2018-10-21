@@ -73,15 +73,6 @@ function addMarkerToMap(lat, lng, icon) {
   return marker;
 }
 
-function toTitleCase(str) {
-  return str.replace(
-      /\w\S*/g,
-      function(txt) {
-          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-      }
-  );
-}
-
 function addDomMarkerToMap(lat, lng, row, symbolName) {
   const symbol = getMarkerOfType(symbolName);
 
@@ -113,11 +104,7 @@ function addDomMarkerToMap(lat, lng, row, symbolName) {
   innerElement.innerHTML = symbol.text;
 
   function showInfo(evt) {
-    mapOverlay.showContent(
-      `<h2>${row['Offense Description']}</h2>` +
-      `<p><b>Location:</b> ${row['Common Name'] || ''} ${toTitleCase('<br/>' + row['Address']) || ''}</p>` +
-      `<p><b>Date and Time:</b> ${row['Reported Date and Time']}</p>`
-    );
+    mapOverlay.showPopup(row);
   };
 
   const icon = new H.map.DomIcon(outerElement, {
