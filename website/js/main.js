@@ -1,4 +1,5 @@
 require('./map-core.js');
+require('./filters.js');
 require('./data-core.js');
 require('./map-data.js');
 // require('./geocoding.js');
