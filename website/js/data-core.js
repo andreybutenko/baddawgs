@@ -1,5 +1,6 @@
 const request = require('request');
 const categories = require('./categories.js');
+const filters = require('./filters.js');
 
 let ready = false;
 let data = [];
@@ -33,6 +34,13 @@ request(`http://127.0.0.1:8080/crimes.json`, function(error, response, body) {
   for(let i = 0; i < callbacks.length; i++) {
     callbacks[i](data);
   }
+
+  filters.onFiltersChange(allowed => {
+    const filtered = data.filter(row => allowed.includes(row.category))
+    for(let i = 0; i < callbacks.length; i++) {
+      callbacks[i](filtered);
+    }
+  });
 });
 
 module.exports = {
