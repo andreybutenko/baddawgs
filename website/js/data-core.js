@@ -4,7 +4,7 @@ let ready = false;
 let data = {};
 const callbacks = [];
 
-request(`http://192.168.118.1:8080/crimes.json`, function(error, response, body) {
+request(`http://127.0.0.1:8080/crimes.json`, function(error, response, body) {
   if(error != null || response.statusCode != 200) {
     alert(`Got ${response.statusCode} code while getting data: ${JSON.toString(error)}`);
     return;
