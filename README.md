@@ -10,7 +10,7 @@ PDF on the web page, making them largely inaccessible to interpretation. Our goa
 was to scrape the embedded PDF and visualize the crime data in a user-friendly way.
 
 ### Check it out:
-**UPDATE: We are experiencing difficulties with the Azure deployment of our website. Please visit [baddawgs.andrey.ninja](baddawgs.andrey.ninja) for the temporary website location**
+**UPDATE: We are experiencing difficulties with the Azure deployment of our website. Please visit [baddawgs.andrey.ninja](baddawgs.andrey.ninja) for the temporary website location**  
 Visit [baddawgs.org](baddawgs.org) or [crimedb.azurewebsites.net](crimedb.azurewebsites.net).
 
 ### Known issues: 
