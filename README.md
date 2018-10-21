@@ -19,3 +19,5 @@ link and extract the URL instead of hard-coding it in.
 in one cell. Because these data are too difficult to parse, they are dropped. In the
 future, with the participation of the UWPD, we would seek a data-friendlier solution
 to sharing such as a link to a CSV.  
+* 'Harrassment' category is not showing up correctly. It probably is contained inside of 'Other'.
+* Unrepresented category labels in the donut chart are not removed when the filters are applied.
