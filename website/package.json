@@ -5,7 +5,8 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "browserify ./js/main.js > script.js"
+    "compile": "browserify ./js/main.js > script.js",
+    "compile:watch": "watchify ./js/main.js -o script.js"
   },
   "author": "Andrey Butenko",
   "license": "Apache-2.0",
