@@ -1,5 +1,13 @@
 const dataCore = require('../data-core.js');
 
+
+function getElement(data, prettyName) {
+    if (data.length > 0) {
+        return [prettyName, data.length]
+    } else {
+        return ['', data.length]
+    }
+}
 dataCore.onDataLoaded(function(data) {
     console.log(data);
 
@@ -44,11 +52,11 @@ dataCore.onDataLoaded(function(data) {
             name: 'Percent of Records',
             innerSize: '50%',
             data: [
-                ['Rape', data.filter(row => row['category'] == 'rape').length],
-                ['Property & Trespass', data.filter(row => row['category'] == 'property-trespass').length],
-                ['Substance', data.filter(row => row['category'] == 'substance').length],
-                ['Assault', data.filter(row => row['category'] == 'assault').length],
-                ['Other', data.filter(row => row['category'] == 'other').length]
+                getElement(data.filter(row => row['category'] == 'rape'), 'Rape'),
+                getElement(data.filter(row => row['category'] == 'property-trespass'), 'Property & Trespass'),
+                getElement(data.filter(row => row['category'] == 'substance'), 'Substance'),
+                getElement(data.filter(row => row['category'] == 'assault'), 'Assault'),
+                getElement(data.filter(row => row['category'] == 'other'), 'Other')
 
 
                 // {
