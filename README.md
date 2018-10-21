@@ -10,7 +10,8 @@ PDF on the web page, making them largely inaccessible to interpretation. Our goa
 was to scrape the embedded PDF and visualize the crime data in a user-friendly way.
 
 ### Check it out:
-Visit [baddawgs.org](baddawgs.org) or [crimedb.azurewebsites.net](crimedb.azurewebsites.net).
+**UPDATE: We are experiencing difficulties with the Azure deployment of our website. Please visit [baddawgs.andrey.ninja](http://baddawgs.andrey.ninja) for the temporary website location**  
+Visit [baddawgs.org](http://baddawgs.org) or [crimedb.azurewebsites.net](http://crimedb.azurewebsites.net).
 
 ### Known issues: 
 * If the URL of the downloadable PDF changes, the python script will break. For better
