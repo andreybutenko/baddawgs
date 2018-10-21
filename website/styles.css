@@ -35,3 +35,32 @@ html, body {
   padding: 16px;
   padding-bottom: 32px;
 }
+
+#map-popup-title-container {
+  display: flex;
+  align-items: center;
+}
+
+#map-popup-title-container > h2 {
+  flex: 1;
+}
+
+#map-popup-close {
+  border: 0;
+  width: 2em;
+  height: 2em;
+  float: right;
+}
+
+.map-point-container {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  cursor: pointer;
+}
+
+.map-point-container .map-point {
+  border: 1px solid black;
+}
