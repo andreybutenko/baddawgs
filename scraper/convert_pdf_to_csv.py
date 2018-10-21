@@ -8,6 +8,7 @@ list_of_dfs = read_pdf(pdf_url, encoding='utf-8', spreadsheet=True, pages='all',
 # Append all pages of PDF into one DataFrame
 df = pd.DataFrame()
 for each_df in list_of_dfs:
+
     if len(each_df) > 10:  # This probably isn't a bad parse
         if each_df.loc[[0]][each_df.columns[0]].isnull()[0]:
             # New pages sometimes have the top row shifted right. Shift them back to the left.
@@ -31,5 +32,12 @@ df = df[keep_columns]
 
 # Drop rows that are completely empty
 df = df.dropna(how='all')
+
+# Split date and time into new columns
+temp = pd.DataFrame(df['Reported Date and Time'].str.split(' ', expand=True))
+column_names = ['Reported Date', 'Reported Time', 'ToDrop']
+temp.columns = column_names
+temp = temp.drop('ToDrop', axis=1)
+df = pd.concat([temp, df], axis=1)
 
 df.to_json('crimes.json', orient='index')
