@@ -1,4 +1,5 @@
 const request = require('request');
+const categories = require('./categories.js');
 
 let ready = false;
 let data = [];
@@ -15,6 +16,15 @@ request(`http://127.0.0.1:8080/crimes.json`, function(error, response, body) {
   for(let key in rawData) {
     data.push(rawData[key]);
   }
+
+  data = data
+    .filter(row => row != null && row['Offense Description'] != null)
+    .map(row => {
+      return {
+        ...row,
+        category: categories.getCategory(row)
+      };
+    });
 
   console.log(data);
 
