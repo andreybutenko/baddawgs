@@ -17,53 +17,72 @@
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1533195059" />
   </head>
   <body>
-    <div class="filters">
-      <div>
-        <input type="checkbox" id="marker-rape" name="marker-rape" value="marker-rape" checked>
-        <label for="marker-rape">Rape</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="marker-assault" name="marker-assault" value="marker-assault" checked>
-        <label for="marker-assault">Assault</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="marker-harassment" name="marker-harassment" value="marker-harassment" checked>
-        <label for="marker-harassment">Harassment</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="marker-property-trespass" name="marker-property-trespass" value="marker-property-trespass" checked>
-        <label for="marker-property-trespass">Property trespass</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="marker-substance" name="marker-substance" value="marker-substance" checked>
-        <label for="marker-substance">Substance</label>
-      </div>
-
-      <div>
-        <input type="checkbox" id="marker-other" name="marker-other" value="marker-other" checked>
-        <label for="marker-other">Other</label>
-      </div>
-    </div>
-
-    <div id="histogramtest" style="width:100%; height:400px;"></div>
-    <div id="semicircle" style="width:100%; height:400px;"></div>
-    <div id="map-container">
-      <div id="map-popup-overlay">
-        <div id="map-popup">
-          <div id="map-popup-title-container">
-            <h2 id="map-popup-title"></h2>
-            <button id="map-popup-close" type="button">&times;</button>
+      <div class="header">
+          <div class="container">
+            <a target="_blank" href="http://www.uw.edu/" class="logo-container"><img src="./uw-logo-white.png" class="logo"></a>
+            <a target="_blank" href="http://www.uw.edu/"><img src="./uw-wordmark-white.png" class="wordmark"></a>
+    
+            <ul class="boundless-nav">
+              <li><a target="_blank" href="http://www.uw.edu/">UW Home</a></li>
+              <li><a target="_blank" href="http://police.uw.edu/">UWPD</a></li>
+            </ul>
           </div>
-          <p><b>Location:</b> <span id="map-popup-location"></span></p>
-          <p><b>Date and Time:</b> <span id="map-popup-time"></span></p>
-          <p><b>Case:</b> <span id="map-popup-case"></span></p>
+        </div>
+
+      <div class="map-set">
+        <div id="map-container">
+          <div id="map-popup-overlay">
+            <div id="map-popup">
+              <div id="map-popup-title-container">
+                <h2 id="map-popup-title"></h2>
+                <button id="map-popup-close" type="button">&times;</button>
+              </div>
+              <p><b>Location:</b> <span id="map-popup-location"></span></p>
+              <p><b>Date and Time:</b> <span id="map-popup-time"></span></p>
+              <p><b>Case:</b> <span id="map-popup-case"></span></p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="filters">
+          <h2>Filter</h2>
+          <div>
+            <input type="checkbox" id="marker-rape" name="marker-rape" value="marker-rape" checked>
+            <label for="marker-rape">Rape</label>
+          </div>
+  
+          <div>
+            <input type="checkbox" id="marker-assault" name="marker-assault" value="marker-assault" checked>
+            <label for="marker-assault">Assault</label>
+          </div>
+  
+          <div>
+            <input type="checkbox" id="marker-harassment" name="marker-harassment" value="marker-harassment" checked>
+            <label for="marker-harassment">Harassment</label>
+          </div>
+  
+          <div>
+            <input type="checkbox" id="marker-property-trespass" name="marker-property-trespass" value="marker-property-trespass" checked>
+            <label for="marker-property-trespass">Property trespass</label>
+          </div>
+  
+          <div>
+            <input type="checkbox" id="marker-substance" name="marker-substance" value="marker-substance" checked>
+            <label for="marker-substance">Substance</label>
+          </div>
+  
+          <div>
+            <input type="checkbox" id="marker-other" name="marker-other" value="marker-other" checked>
+            <label for="marker-other">Other</label>
+          </div>
         </div>
       </div>
-    </div>
+  
+      <div class="histogram-set">
+        <div id="histogramtest"></div>
+        <div id="semicircletest"></div>
+      </div>
+    
     <script src="./script.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>
