@@ -13,6 +13,6 @@ function getCoordinatesForAddress(address, callback) {
   });
 }
 
-getCoordinatesForAddress('1600+Amphitheatre+Parkway,+Mountain+View,+CA', console.log);
+getCoordinatesForAddress('5000 25TH AVE NE', console.log);
 
 // https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
