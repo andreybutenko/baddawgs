@@ -79,25 +79,11 @@ function addDomMarkerToMap(lat, lng, row, symbolName) {
   const outerElement = document.createElement('div');
   const innerElement = document.createElement('div');
 
-  outerElement.style.userSelect = 'none';
-  outerElement.style.webkitUserSelect = 'none';
-  outerElement.style.msUserSelect = 'none';
-  outerElement.style.mozUserSelect = 'none';
-  outerElement.style.cursor = 'default';
+  outerElement.classList.add('map-point-container');
+  innerElement.classList.add('map-point');
 
   innerElement.style.color = symbol.color;
   innerElement.style.backgroundColor = symbol.bgColor;
-  innerElement.style.border = '2px solid black';
-  innerElement.style.font = 'normal 12px arial';
-  innerElement.style.lineHeight = '12px'
-
-  innerElement.style.paddingTop = '2px';
-  innerElement.style.paddingLeft = '4px';
-  innerElement.style.width = '16px';
-  innerElement.style.height = '16px';
-
-  innerElement.style.marginTop = '-8px';
-  innerElement.style.marginLeft = '-8px';
 
   outerElement.appendChild(innerElement);
 
