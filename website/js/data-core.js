@@ -1,7 +1,7 @@
 const request = require('request');
 
 let ready = false;
-let data = {};
+let data = [];
 const callbacks = [];
 
 request(`http://127.0.0.1:8080/crimes.json`, function(error, response, body) {
@@ -10,7 +10,14 @@ request(`http://127.0.0.1:8080/crimes.json`, function(error, response, body) {
     return;
   }
 
-  data = JSON.parse(body);
+  const rawData = JSON.parse(body);
+
+  for(let key in rawData) {
+    data.push(rawData[key]);
+  }
+
+  console.log(data);
+
   ready = true;
 
   for(let i = 0; i < callbacks.length; i++) {
