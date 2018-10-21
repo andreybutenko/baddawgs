@@ -3,12 +3,14 @@
 Kairsten Fay, Andrey Butenko, Caleb Kierum
 
 ### Motivation:
-The UW Campus Police Department (UWPD) has a public-facing website that contains crime 
-data from the past 60 days. However, the data are contained within an embedded
+The UW Campus Police Department (UWPD) has a public-facing website that contains [crime 
+data from the past 60 days](http://police.uw.edu/crimedata/60daylog/). However, the 
+data are contained within an embedded
 PDF on the web page, making them largely inaccessible to interpretation. Our goal
 was to scrape the embedded PDF and visualize the crime data in a user-friendly way.
 
-### How to use: 
+### Check it out:
+Visit [baddawgs.org](baddawgs.org) or [crimedb.azurewebsites.net](crimedb.azurewebsites.net).
 
 ### Known issues: 
 * If the URL of the downloadable PDF changes, the python script will break. For better
@@ -18,3 +20,5 @@ link and extract the URL instead of hard-coding it in.
 in one cell. Because these data are too difficult to parse, they are dropped. In the
 future, with the participation of the UWPD, we would seek a data-friendlier solution
 to sharing such as a link to a CSV.  
+* 'Harrassment' category is not showing up correctly. It probably is contained inside of 'Other'.
+* Unrepresented category labels in the donut chart are not removed when the filters are applied.
