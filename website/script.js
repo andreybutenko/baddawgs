@@ -32889,7 +32889,8 @@ require('./geocoding.js');
 // Set up credentials
 const platform = new H.service.Platform({
   'app_id': 'bdoH4E9sAhEHXMos9IkW',
-  'app_code': 'XrGZN4dOdJAGYHJJaF2FXQ'
+  'app_code': 'XrGZN4dOdJAGYHJJaF2FXQ',
+  useHTTPS: true
 });
 
 // Set up layers
