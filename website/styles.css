@@ -63,4 +63,9 @@ html, body {
 
 .map-point-container .map-point {
   border: 1px solid black;
+  font-size: 10px;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  font-size: 10px;
 }
