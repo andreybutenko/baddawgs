@@ -39,17 +39,16 @@ dataCore.onDataLoaded(function(data) {
         },
         series: [{
             type: 'pie',
-            name: 'Browser share',
+            name: '% of Records in 60-day Crime Log',
             innerSize: '50%',
             data: [
-                ['property-trespass', data.filter(row => row['Case Disposition'] == 'Open').length],
-                ['assault', data.filter(row => row['Case Disposition'] == 'Open').length],
-                ['rape', data.filter(row => row['Case Disposition'] == 'Open').length],
-                ['other', data.filter(row => row['Case Disposition'] == 'Open').length],
-                ['substance', data.filter(row => row['Case Disposition'] == 'Open').length],
+                ['Property & Tresspass', data.filter(row => row['category'] == 'property-trespass').length],
+                ['Assault', data.filter(row => row['category'] == 'assault').length],
+                ['Rape', data.filter(row => row['category'] == 'rape').length],
+                ['Substance', data.filter(row => row['substance'] == 'other').length],
                 {
                     name: 'Other',
-                    y: data.filter(row => row['Case Disposition'] == 'Open').length,
+                    y: data.filter(row => row['category'] == 'other').length,
                     dataLabels: {
                         enabled: false
                     }
