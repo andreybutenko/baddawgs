@@ -2,7 +2,7 @@
   "name": "uw-crime-log-website",
   "version": "1.0.0",
   "description": "",
-  "main": "inex.html",
+  "main": "scripts.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "browserify ./js/main.js > script.js",
