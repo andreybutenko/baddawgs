@@ -1,3 +1,3 @@
 cd website
-npm install -g browserify
+sudo npm install -g browserify
 npm run compile
