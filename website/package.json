@@ -11,6 +11,7 @@
   "author": "Andrey Butenko",
   "license": "Apache-2.0",
   "dependencies": {
+    "datejs": "^1.0.0-rc3",
     "request": "^2.88.0"
   }
 }
