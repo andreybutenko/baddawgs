@@ -49,8 +49,6 @@ function getIconForEmoji(emoji) {
   return icon;
 }
 
-// bike theft, theft, hit and run, trespass, harassment, assault, vehcle prowling, rape
-
 const markerData = {
   'bike-theft': getIconForEmoji('🚲'),
   'theft': getIconForEmoji('😠'),
@@ -65,12 +63,14 @@ function getMarkerOfType(name) {
   return markerData[name];
 }
 
-function addMarkerToMap(map, lat, lng, icon) {
+function addMarkerToMap(lat, lng, icon) {
   const marker = new H.map.Marker({ lat, lng }, { icon });
   map.addObject(marker);
   return marker;
 }
 
-for(let i = 0; i < Object.keys(markerData).length; i++) {
-  addMarkerToMap(map, 47.655, -122.309 - (0.002 * i), getMarkerOfType(Object.keys(markerData)[i]));
+module.exports = {
+  getMarkerOfType,
+  addMarkerToMap,
+  markerData
 }
