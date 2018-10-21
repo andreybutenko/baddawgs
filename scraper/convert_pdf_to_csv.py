@@ -17,7 +17,7 @@ def get_lat(location):
     :returns: a float representing the latitude of the given location.
     """
     # defining a params dict for the parameters to be sent to the API
-    PARAMS = {'address': location, 'key': API_KEY}
+    PARAMS = {'address': str(location) + ', Seattle, WA', 'key': API_KEY}
 
     # sending get request and saving the response as response object
     r = requests.get(url=GEO_URL, params=PARAMS)
@@ -38,7 +38,7 @@ def get_lng(location):
     :returns: A float representing the longitude of the given location.
     """
     # defining a params dict for the parameters to be sent to the API
-    PARAMS = {'address': location, 'key': API_KEY}
+    PARAMS = {'address': str(location) + ', Seattle, WA', 'key': API_KEY}
 
     # sending get request and saving the response as response object
     r = requests.get(url=GEO_URL, params=PARAMS)
@@ -58,17 +58,16 @@ def split_date_time(data_to_split):
     :return: a pandas DataFrame with two new columns
     """
     temp = pd.DataFrame(data_to_split['Reported Date and Time'].str.split(' ', expand=True))
-    column_names = ['Reported Date', 'Reported Time', 'ToDrop']
-    temp.columns = column_names
+    temp.columns = ['Reported Date', 'Reported Time', 'ToDrop']
     temp = temp.drop('ToDrop', axis=1)
-    data_to_split = pd.concat([temp, data_to_split], axis=1)
-    return data_to_split
+    return pd.concat([temp, data_to_split], axis=1)
 
 
 def gather_pdf_pages():
     """
     Downloads a collection of DataFrames from the PDF URL, cleans them a bit, and appends
-    them together into one DataFrame.
+    them together into one DataFrame. "Bad parses" are defined as pages of the PDF that result
+    in fewer than 10 rows. These pages are extremely difficult to parse and are therefore dropped.
 
     :returns: a pandas DataFrame of the tabular, parsed PDF data.
     """
