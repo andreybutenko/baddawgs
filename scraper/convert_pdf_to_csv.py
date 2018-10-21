@@ -116,4 +116,5 @@ if __name__ == '__main__':
     df['Longitude'] = df['Address'].apply(get_lng)
 
     df.to_json('crimes.json', orient='index')
+    df.to_csv('crimes.csv')
 
