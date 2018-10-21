@@ -2,34 +2,32 @@ const dataCore = require('../data-core.js');
 const datejs = require('datejs');
 
 var incidentDateArray;
-dataCore.onDataLoaded(function(data) {
-    console.log("HI");
-    var dates = data.map(row => {
+
+function filterForCategory(data, category) {
+    return data.filter(row => row['category'] === category).map(row => {
         return Date.parse(row['Reported Date and Time'])
     });
-    console.log(dates);
-    var hours = dates.map(element => {
+}
+function getHourFrequency(data) {
+    var hours = data.map(element => {
         return element.getHours();
     });
-    console.log(hours);
-
-
     var hourFrequency = hours
         .reduce((acc, cur) => {
             acc[cur] = (acc[cur] + 1 || 1);
             return acc;
-        }, [])
+    }, [])
 
     for(let i = 0; i < hourFrequency.length; i++) {
         hourFrequency[i] = hourFrequency[i] || 0;
     }
-
-            
-    console.log(hourFrequency);
-
-
+    return hourFrequency;
+}
+function batchCategoryHour(data, category) {
+    return getHourFrequency(filterForCategory(data, category));
+}
+dataCore.onDataLoaded(function(data) {
     Highcharts.chart({
-
         chart: {
             renderTo: 'hourhistogram',
             type: 'column'
@@ -47,9 +45,9 @@ dataCore.onDataLoaded(function(data) {
         }, yAxis: {
             title: ''
         }, tooltip: {
-            headerFormat: '<span style="">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0"></td>' +
-              '<td style="padding:0"><b>{point.y} crimes</b></td></tr>',
+            headerFormat: '<span style=""><b>{point.key}</b></span><table>',
+
+            pointFormat: '<p></p><td style="padding:0">{point.y} {series.name} Incidents</td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -60,12 +58,31 @@ dataCore.onDataLoaded(function(data) {
                 groupPadding: 0,
                 pointPadding: 0,
                 borderWidth: 0
+            }, series: {
+                stacking: 'normal'
             }
         },
     
-        series: [{
-            showInLegend: false,
-            data: hourFrequency
+        series: [
+        {
+            name: 'Rape',
+            data: batchCategoryHour(data, 'rape')
+        },
+        {
+            name: 'Property & Trespass',
+            data: batchCategoryHour(data, 'property-trespass')
+        },
+        {
+            name: 'Substance',
+            data: batchCategoryHour(data, 'substance')
+        },
+        {
+            name: 'Assualt',
+            data: batchCategoryHour(data, 'assault')
+        },
+        {
+            name: 'Other',
+            data: batchCategoryHour(data, 'other')
         }]
     
     });
