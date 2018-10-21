@@ -4,16 +4,16 @@ dataCore.onDataLoaded(function(data) {
     console.log(data);
 
     var length = data.length; // if we need to do percentages
-    console.log(data.filter(row => row['Case Disposition'] == 'Open').length);
+    // console.log(data.filter(row => row['Case Disposition'] == 'Open').length);
 
-    Highcharts.chart('semicircletest', {
+    Highcharts.chart('semicircle', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: 0,
             plotShadow: false
         },
         title: {
-            text: 'Crime<br>Decomposition',
+            text: '60-Day Crime<br>Decomposition',
             align: 'center',
             verticalAlign: 'middle',
             y: 40
@@ -39,7 +39,7 @@ dataCore.onDataLoaded(function(data) {
         },
         series: [{
             type: 'pie',
-            name: '% of Records in 60-day Crime Log',
+            name: '% of Records',
             innerSize: '50%',
             data: [
                 ['Property & Trespass', data.filter(row => row['category'] == 'property-trespass').length],
