@@ -50,13 +50,12 @@ function getIconForEmoji(emoji) {
 }
 
 const markerData = {
-  'bike-theft': getIconForEmoji('🚲'),
-  'theft': getIconForEmoji('😠'),
-  'hit-and-run': getIconForEmoji('🚗'),
-  'trespass': getIconForText('T', '#000000', '#ffffff'),
-  'assault': getIconForText('A', '#ff0000', '#ffffff'),
-  'vehicle-prowling': getIconForText('P', '#000000', '#ffffff'),
-  'rape': getIconForText('R', '#ff0000', '#ffffff')
+  'rape': getIconForText('R', '#c0392b', '#ffffff'),
+  'assault': getIconForText('A', '#d35400', '#ffffff'),
+  'harassment': getIconForText('H', '#f39c12', '#ffffff'),
+  'property-trespass': getIconForText('PT', '#2980b9', '#ffffff'),
+  'substance': getIconForText('S', '#27ae60', '#ffffff'),
+  'other': getIconForText('O', '#ffffff', '#000000')
 }
 
 function getMarkerOfType(name) {
