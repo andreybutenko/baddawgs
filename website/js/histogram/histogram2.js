@@ -1,5 +1,6 @@
 const dataCore = require('../data-core.js');
 
+/*
 dataCore.onDataLoaded(function(data) {
     console.log(data);
 
@@ -44,3 +45,4 @@ dataCore.onDataLoaded(function(data) {
         }]
     });
 });
+*/
