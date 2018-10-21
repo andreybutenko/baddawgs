@@ -42,7 +42,7 @@ dataCore.onDataLoaded(function(data) {
             name: '% of Records in 60-day Crime Log',
             innerSize: '50%',
             data: [
-                ['Property & Tresspass', data.filter(row => row['category'] == 'property-trespass').length],
+                ['Property & Trespass', data.filter(row => row['category'] == 'property-trespass').length],
                 ['Assault', data.filter(row => row['category'] == 'assault').length],
                 ['Rape', data.filter(row => row['category'] == 'rape').length],
                 ['Substance', data.filter(row => row['substance'] == 'other').length],
