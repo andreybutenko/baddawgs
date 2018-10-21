@@ -1,2 +1,2 @@
-echo "Hello World"
-touch tester.txt
+cd website
+npm run compile
