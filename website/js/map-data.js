@@ -38,15 +38,15 @@ function getCategory(row) {
 }
 
 dataCore.onDataLoaded(function(data) {
-  console.log('data LOADED')
   for(let i = 0; i < Object.keys(data).length; i++) {
     const row = data[i];
+
     if(row != null && row['Offense Description'] != null) {
       const category = getCategory(row);
-console.log(category)
-      mapCore.addMarkerToMap(
-        row['Latitude'], row['Longitude'], mapCore.getMarkerOfType(category)
-      )
+
+      mapCore.addDomMarkerToMap(
+        row['Latitude'], row['Longitude'], row, category
+      );
     }
   }
 });
