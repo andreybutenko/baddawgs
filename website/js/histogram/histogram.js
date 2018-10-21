@@ -4,12 +4,29 @@ const datejs = require('datejs');
 var incidentDateArray;
 dataCore.onDataLoaded(function(data) {
     console.log("HI");
-    var arr = data.map(row => {
-        return Date.parse(row['Reported Date and Time']).getTime()
+    var dates = data.map(row => {
+        return Date.parse(row['Reported Date and Time'])
     });
-    incidentDateArray = arr;
+    console.log(dates);
+    var hours = dates.map(element => {
+        return element.getHours();
+    });
+    console.log(hours);
 
-    console.log(incidentDateArray);
+
+    var hourFrequency = hours
+        .reduce((acc, cur) => {
+            acc[cur] = (acc[cur] + 1 || 1);
+            return acc;
+        }, [])
+
+    for(let i = 0; i < hourFrequency.length; i++) {
+        hourFrequency[i] = hourFrequency[i] || 0;
+    }
+
+            
+    console.log(hourFrequency);
+
 
     Highcharts.chart({
 
@@ -19,7 +36,7 @@ dataCore.onDataLoaded(function(data) {
         },
     
         xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            //categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         },
         
         plotOptions: {
@@ -31,7 +48,7 @@ dataCore.onDataLoaded(function(data) {
         },
     
         series: [{
-            data: incidentDateArray
+            data: hourFrequency
         }]
     
     });
