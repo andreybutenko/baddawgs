@@ -8,7 +8,10 @@ list_of_dfs = read_pdf(pdf_url, encoding='utf-8', spreadsheet=True, pages='all',
 # Append all pages of PDF into one DataFrame
 df = pd.DataFrame()
 for each_df in list_of_dfs:
-    if len(each_df) > 10:  # This is a bad parse
+    if len(each_df) > 10:  # This probably isn't a bad parse
+        if each_df.loc[[0]][each_df.columns[0]].isnull()[0]:
+            # New pages sometimes have the top row shifted right. Shift them back to the left.
+            each_df.loc[[0]] = each_df.loc[[0]].shift(-1, axis=1)
         df = df.append(each_df)
 
 # Replace the '\r' with a space in every cell
