@@ -22,3 +22,4 @@ future, with the participation of the UWPD, we would seek a data-friendlier solu
 to sharing such as a link to a CSV.  
 * 'Harrassment' category is not showing up correctly. It probably is contained inside of 'Other'.
 * Unrepresented category labels in the donut chart are not removed when the filters are applied.
+* Unchecking categories (like Other) doesn't always remove all data points. 
