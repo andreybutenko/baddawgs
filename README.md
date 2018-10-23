@@ -1,6 +1,6 @@
 # DubHacks 2018 Project
 ## Team members: 
-(https://github.com/kairstenfay)[Kairsten Fay], (https://github.com/andreybutenko)[Andrey Butenko], (https://github.com/CalebKierum)[Caleb Kierum].
+[Kairsten Fay](https://github.com/kairstenfay), [Andrey Butenko](https://github.com/andreybutenko), [Caleb Kierum](https://github.com/CalebKierum).
 
 ### Motivation:
 The UW Campus Police Department (UWPD) has a public-facing website that contains [crime 
